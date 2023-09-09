@@ -1,0 +1,128 @@
+:root {
+  --max-width: 1100px;
+  --border-radius: 12px;
+  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
+    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
+    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+
+  --primary-glow: conic-gradient(
+    from 180deg at 50% 50%,
+    #16abff33 0deg,
+    #0885ff33 55deg,
+    #54d6ff33 120deg,
+    #0071ff33 160deg,
+    transparent 360deg
+  );
+  
+
+  --tile-start-rgb: 239, 245, 249;
+  --tile-end-rgb: 228, 232, 233;
+  --tile-border: conic-gradient(
+    #00000080,
+    #00000040,
+    #00000030,
+    #00000020,
+    #00000010,
+    #00000010,
+    #00000080
+  );
+
+  --callout-rgb: 238, 240, 241;
+  --callout-border-rgb: 172, 175, 176;
+  --card-rgb: 180, 185, 188;
+  --card-border-rgb: 131, 134, 135;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1{
+  width: 100%;
+  text-align: center;
+  padding: 25px 0;
+}
+
+.main{
+  padding: 15px 0;
+  background: gray;
+}
+
+.box{
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.block{
+  width: 70%;
+  height: auto;
+  background: rgb(224, 224, 224);
+  border: 1px solid black;
+  border-radius: 7px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.container{
+  width: 1000px;
+  margin: 25px auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  border: 1px solid rgb(255, 255, 255);
+  padding: 10px 20px;
+  border-radius: 7px;
+  transition: 250ms;
+}
+
+a:hover {
+  background: black;
+  border: 1px solid rgb(0, 0, 0);
+}
+
+p{
+  padding: 5px 0;
+}
+
+ul{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 10px;
+  padding: 10px;
+}
+
+ol{
+  display: flex;
+}
+
+li {
+  width: 100%;
+  height: auto;
+  background: rgb(224, 224, 224);
+  border-radius: 7px;
+  padding: 10px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+span{
+  width: 100%;
+  font-size: 30px;
+  text-align: center;
+}
