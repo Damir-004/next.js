@@ -8,9 +8,18 @@ function Posts() {
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(10);
 
+  // Определение значения totalPosts
+  const totalPosts = posts.length;
+
+  const pageNumbers = [];
+  for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
+    pageNumbers.push(i);
+  }
+
   useEffect(() => {
     fetchPosts();
   }, []);
+
   const fetchPosts = async () => {
     try {
       const response = await fetch('https://jsonplaceholder.typicode.com/posts');
@@ -19,10 +28,10 @@ function Posts() {
     } catch (error) {
       console.log('Ошибка при загрузке постов:', error);
     }
-  };
+  };  
   const handleUserClick = (postId) => {
     setBlockId(postId);
-    const newURL = `http://localhost:3000/posts/${postId}`;
+    const newURL = `http://localhost:3001/posts/${postId}`;
     window.history.pushState(null, '', newURL);
   };
   useEffect(() => {
@@ -66,33 +75,23 @@ function Posts() {
         ))}
       </ul>
       
-      <Pagination
-        postsPerPage={postsPerPage}
-        totalPosts={posts.length}
-        paginate={paginate}
-      />
+      <nav 
+         style={blockId ? { display: 'none' } : {}}
+      >
+        
+        
+        <ol className='pagination' >
+          {pageNumbers.map((number) => (
+            <li key={number} className='page-item'>
+              <button onClick={() => paginate(number)} className='page-link'>
+                {number}
+              </button>
+            </li>
+          ))}
+        </ol>
+      </nav>
     </div>
   );
 }
 
 export default Posts;
-
-function Pagination({ postsPerPage, totalPosts, paginate }) {
-  const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
-    pageNumbers.push(i);
-  }
-  return (
-    <nav>
-      <ol className='pagination'>
-        {pageNumbers.map((number) => (
-          <li key={number} className='page-item'>
-            <button onClick={() => paginate(number)} className='page-link'>
-              {number}
-            </button>
-          </li>
-        ))}
-      </ol>
-    </nav>
-  );
-}
