@@ -31,7 +31,7 @@ function Posts() {
   };  
   const handleUserClick = (postId) => {
     setBlockId(postId);
-    const newURL = `http://localhost:3001/posts/${postId}`;
+    const newURL = `https://next-js-gold-zeta.vercel.app/posts/${postId}`;
     window.history.pushState(null, '', newURL);
   };
   useEffect(() => {
